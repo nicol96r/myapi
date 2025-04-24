@@ -26,7 +26,7 @@ class UsuarioController extends Controller
             'nombre' => 'required|string|max:255',
             'telefono' => 'numeric',
             'email' => 'string',
-            
+            'direccion' => 'string|max:255',
 
         ]);
 

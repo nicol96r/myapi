@@ -14,9 +14,10 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $pedidos = pedido::all();
-        return response ()->json($pedidos)
+        $pedido = pedido::all();
+        return response ()->json($pedido);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -42,11 +43,11 @@ class PedidoController extends Controller
      */
     public function show(string $id)
     {
-        $pedidos = pedido::find($id);
-        if (!$usuarios) {
-            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        $pedido = pedido::find($id);
+        if (!$pedido) {
+            return response()->json(['message' => 'Pedido no encontrado'], 404);
         }
-        return response()->json($usuarios);
+        return response()->json($pedido);
     }
 
     /**
@@ -68,10 +69,10 @@ class PedidoController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        $usuario->update($validator->validated());
-        return response()->json($usuario);
+        $pedido->update($validator->validated());
+        return response()->json($pedido);
     }
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -87,3 +88,4 @@ class PedidoController extends Controller
     
     }
 
+}
